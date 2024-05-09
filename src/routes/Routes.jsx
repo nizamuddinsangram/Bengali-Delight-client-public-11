@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllFoodPage from "../Pages/AllFoodPage/AllFoodPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/allFood",
+        element: <AllFoodPage />,
+        loader: () => fetch("http://localhost:8000/allFoods"),
       },
       {
         path: "/test",

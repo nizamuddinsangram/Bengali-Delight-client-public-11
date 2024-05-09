@@ -36,7 +36,7 @@ const Navbar = () => {
             </li>
             {user && (
               <li>
-                <Link to="/test">test</Link>
+                <Link to="/allFood">All Food</Link>
               </li>
             )}
             <li>
@@ -56,7 +56,7 @@ const Navbar = () => {
           </li>
           {user && (
             <li>
-              <Link to="/test">test</Link>
+              <Link to="/allFood">All Food</Link>
             </li>
           )}
           <li>
