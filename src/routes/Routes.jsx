@@ -4,6 +4,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import SingleFood from "../Pages/SingleFoodPage/SingleFood";
 import Test from "../Pages/Test/Test";
 import Main from "../layout/Main";
 import PrivateRoute from "./PrivateRoute";
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
         path: "/allFood",
         element: <AllFoodPage />,
         loader: () => fetch("http://localhost:8000/allFoods"),
+      },
+      {
+        path: "/singleFood/:id",
+        element: <SingleFood />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/allFoods/${params.id}`),
       },
       {
         path: "/test",

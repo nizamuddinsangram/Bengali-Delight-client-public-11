@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const AllFoodCard = ({ food }) => {
-  console.log(food);
+  // console.log(food);
   const {
     foodImage,
     foodName,
@@ -8,6 +9,7 @@ const AllFoodCard = ({ food }) => {
     shortDescription,
     quantity,
     foodCategory,
+    _id,
   } = food;
   return (
     <div className="w-10/12	mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -55,9 +57,12 @@ const AllFoodCard = ({ food }) => {
         <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
           <span>Quantity: {quantity}</span>
         </div>
-        <button className="btn btn-sm bg-purple-100  w-full  mt-3">
+        <Link
+          to={`/singleFood/${_id}`}
+          className="btn btn-sm bg-purple-100  w-full  mt-3"
+        >
           Details{" "}
-        </button>
+        </Link>
       </div>
     </div>
   );
