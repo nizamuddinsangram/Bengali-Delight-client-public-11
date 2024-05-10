@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllFoodPage from "../Pages/AllFoodPage/AllFoodPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import FoodPurchase from "../Pages/FoodPurchasePage/FoodPurchase";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/singleFood/:id",
         element: <SingleFood />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/allFoods/${params.id}`),
+      },
+      {
+        path: "/foodPurchases/:id",
+        element: <FoodPurchase />,
         loader: ({ params }) =>
           fetch(`http://localhost:8000/allFoods/${params.id}`),
       },
