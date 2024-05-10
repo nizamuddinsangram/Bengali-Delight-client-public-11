@@ -13,6 +13,7 @@ const FoodPurchase = () => {
     const form = e.target;
     const name = form.foodName.value;
     const price = form.price.value;
+    const quantity = form.quantity.value;
     const date = form.buyingDate.value;
     const buyer_email = form.buyerEmail.value;
     const buyer_name = form.buyerName.value;
@@ -22,6 +23,7 @@ const FoodPurchase = () => {
       date,
       buyer_email,
       buyer_name,
+      quantity,
     };
     console.log(purchaseFood);
   };
