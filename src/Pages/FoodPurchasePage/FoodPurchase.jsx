@@ -7,7 +7,7 @@ const FoodPurchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
   //   console.log(foodData);
-  const { foodName, price } = foodData;
+  const { foodName, price, foodImage } = foodData;
   //   console.log(foodName, price);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +25,7 @@ const FoodPurchase = () => {
       buyer_email,
       buyer_name,
       quantity,
+      foodImage,
     };
     console.log(purchaseFood);
     axios

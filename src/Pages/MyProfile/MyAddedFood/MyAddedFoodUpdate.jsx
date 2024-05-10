@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
@@ -17,13 +18,44 @@ const MyAddedFoodUpdate = () => {
     numberOfPurchases,
     _id,
   } = updateData;
-  const handleUpdate = () => {
-    console.log("handle update");
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const foodName = form.foodName.value;
+    const foodImage = form.foodImage.value;
+    const foodCategory = form.foodCategory.value;
+    const quantity = parseFloat(form.quantity.value);
+    const price = form.price.value;
+    const addedBy = {
+      name: form.addedByName.value,
+      email: form.addedByEmail.value,
+    };
+    const foodOrigin = form.foodOrigin.value;
+    const shortDescription = form.shortDescription.value;
+    const numberOfPurchases = parseFloat(form.numberOfPurchases.value);
+    const updatedFoodItem = {
+      foodName,
+      foodImage,
+      foodCategory,
+      quantity,
+      price,
+      addedBy,
+      foodOrigin,
+      shortDescription,
+      numberOfPurchases,
+    };
+    console.log(updatedFoodItem);
+    axios
+      .put(`http://localhost:8000/foods/${_id}`, updatedFoodItem)
+      .then((res) => {
+        console.log(res.data);
+      });
   };
   return (
     <div>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Add Food Item</h1>
+        <h1 className="text-2xl font-bold mb-4">Update Food Item</h1>
         <form
           onSubmit={handleUpdate}
           className="bg-white p-6 rounded-lg shadow-md"
@@ -107,17 +139,19 @@ const MyAddedFoodUpdate = () => {
               <input
                 type="text"
                 name="addedByName"
-                defaultValue={user?.displayName}
+                defaultValue={addedBy?.name}
                 className="mt-1 p-2 w-1/2 border border-gray-300 rounded-lg"
                 placeholder="Name"
+                readOnly
                 required
               />
               <input
                 type="email"
                 name="addedByEmail"
-                defaultValue={user?.email}
+                defaultValue={addedBy?.email}
                 className="mt-1 p-2 w-1/2 border border-gray-300 rounded-lg"
                 placeholder="Email"
+                readOnly
                 required
               />
             </div>
