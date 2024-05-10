@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -11,14 +12,14 @@ const FoodPurchase = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.foodName.value;
+    const foodName = form.foodName.value;
     const price = form.price.value;
     const quantity = form.quantity.value;
     const date = form.buyingDate.value;
     const buyer_email = form.buyerEmail.value;
     const buyer_name = form.buyerName.value;
     const purchaseFood = {
-      name,
+      foodName,
       price,
       date,
       buyer_email,
@@ -26,6 +27,9 @@ const FoodPurchase = () => {
       quantity,
     };
     console.log(purchaseFood);
+    axios
+      .post("http://localhost:8000/purchases", purchaseFood)
+      .then((res) => console.log(res.data));
   };
   return (
     <div>
