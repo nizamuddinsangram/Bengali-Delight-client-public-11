@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 const GalleryPage = () => {
@@ -13,6 +14,10 @@ const GalleryPage = () => {
       experience,
       image,
     };
+    console.log(feedback);
+    axios.post("http://localhost:8000/feedback", feedback).then((res) => {
+      console.log(res.data);
+    });
   };
   return (
     <div className="container mx-auto p-4">
