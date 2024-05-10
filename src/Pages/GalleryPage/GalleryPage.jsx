@@ -2,8 +2,17 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 const GalleryPage = () => {
   const { user } = useContext(AuthContext);
-  const handleSubmit = () => {
-    console.log("handleSubmit");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.userName.value;
+    const experience = form.feedback.value;
+    const image = form.imageUrl.value;
+    const feedback = {
+      name,
+      experience,
+      image,
+    };
   };
   return (
     <div className="container mx-auto p-4">
@@ -22,7 +31,7 @@ const GalleryPage = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
-                User's Name
+                Users Name
               </label>
               <input
                 type="text"
