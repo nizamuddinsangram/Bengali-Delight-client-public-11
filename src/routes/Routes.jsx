@@ -4,6 +4,9 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FoodPurchase from "../Pages/FoodPurchasePage/FoodPurchase";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import AddFood from "../Pages/MyProfile/AddFood/AddFood";
+import MyAddedFood from "../Pages/MyProfile/MyAddedFood/MyAddedFood";
+import MyOrderFood from "../Pages/MyProfile/MyOrderFood/MyOrderFood";
 import Register from "../Pages/Register/Register";
 import SingleFood from "../Pages/SingleFoodPage/SingleFood";
 import Test from "../Pages/Test/Test";
@@ -43,6 +46,18 @@ const router = createBrowserRouter([
         element: <FoodPurchase />,
         loader: ({ params }) =>
           fetch(`http://localhost:8000/allFoods/${params.id}`),
+      },
+      {
+        path: "/myAddedFood",
+        element: <MyAddedFood />,
+      },
+      {
+        path: "/addFood",
+        element: <AddFood />,
+      },
+      {
+        path: "/myOrderedFood",
+        element: <MyOrderFood />,
       },
       {
         path: "/test",
