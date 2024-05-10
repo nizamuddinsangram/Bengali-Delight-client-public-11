@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import AddFood from "../Pages/MyProfile/AddFood/AddFood";
 import MyAddedFood from "../Pages/MyProfile/MyAddedFood/MyAddedFood";
+import MyAddedFoodUpdate from "../Pages/MyProfile/MyAddedFood/MyAddedFoodUpdate";
 import MyOrderFood from "../Pages/MyProfile/MyOrderFood/MyOrderFood";
 import Register from "../Pages/Register/Register";
 import SingleFood from "../Pages/SingleFoodPage/SingleFood";
@@ -58,6 +59,12 @@ const router = createBrowserRouter([
       {
         path: "/myOrderedFood",
         element: <MyOrderFood />,
+      },
+      {
+        path: "/myAddedFoodUpdate/:id",
+        element: <MyAddedFoodUpdate />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/allFoods/${params.id}`),
       },
       {
         path: "/test",
