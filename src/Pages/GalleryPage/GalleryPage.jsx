@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import GalleryCard from "./GalleryCard";
 const GalleryPage = () => {
   const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
@@ -20,76 +21,79 @@ const GalleryPage = () => {
     });
   };
   return (
-    <div className="container mx-auto p-4">
-      <p>This is our gallery</p>
-      <button
-        className="btn bg-blue-500 text-white rounded-lg"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-        Open Modal
-      </button>
+    <div>
+      <div className="container mx-auto p-4">
+        <p>This is our gallery</p>
+        <button
+          className="btn bg-blue-500 text-white rounded-lg"
+          onClick={() => document.getElementById("my_modal_1").showModal()}
+        >
+          Open Modal
+        </button>
 
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Feedback!</h3>
-          <p className="py-4">Give your feedback here</p>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Users Name
-              </label>
-              <input
-                type="text"
-                name="userName"
-                readOnly
-                defaultValue={user?.displayName || ""}
-                className="mt-1 p-2 w-full border border-gray-300 rounded-lg bg-gray-100"
-              />
-            </div>
+        <dialog id="my_modal_1" className="modal">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">Feedback!</h3>
+            <p className="py-4">Give your feedback here</p>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Users Name
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  readOnly
+                  defaultValue={user?.displayName || ""}
+                  className="mt-1 p-2 w-full border border-gray-300 rounded-lg bg-gray-100"
+                />
+              </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Feedback / Experience
-              </label>
-              <textarea
-                name="feedback"
-                required
-                className="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-                placeholder="Describe your experience or give feedback"
-              ></textarea>
-            </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Feedback / Experience
+                </label>
+                <textarea
+                  name="feedback"
+                  required
+                  className="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+                  placeholder="Describe your experience or give feedback"
+                ></textarea>
+              </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Image URL
-              </label>
-              <input
-                type="text"
-                name="imageUrl"
-                required
-                className="mt-1 p-2 w-full border border-gray-300 rounded-lg"
-                placeholder="Enter image URL"
-              />
-            </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Image URL
+                </label>
+                <input
+                  type="text"
+                  name="imageUrl"
+                  required
+                  className="mt-1 p-2 w-full border border-gray-300 rounded-lg"
+                  placeholder="Enter image URL"
+                />
+              </div>
 
-            <div className="modal-action">
-              <button type="submit" className="btn bg-blue-500 text-white">
-                Submit
-              </button>
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  const modal = document.getElementById("my_modal_1");
-                  modal?.close();
-                }}
-              >
-                Close
-              </button>
-            </div>
-          </form>
-        </div>
-      </dialog>
+              <div className="modal-action">
+                <button type="submit" className="btn bg-blue-500 text-white">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => {
+                    const modal = document.getElementById("my_modal_1");
+                    modal?.close();
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+        </dialog>
+      </div>
+      <GalleryCard />
     </div>
   );
 };
