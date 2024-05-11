@@ -1,14 +1,22 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 const FoodPurchase = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
+  const { foodName, price, foodImage, _id, quantity } = foodData;
+
+  const [availableQuantity, setAvailableQuantity] = useState(quantity);
+
   //   console.log(foodData);
-  const { foodName, price, foodImage, _id } = foodData;
-  //   console.log(foodName, price);
+
+  // if (test == 0) {
+  //   alert("cannot buy this product");
+  // }
+  //challending part
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,6 +36,7 @@ const FoodPurchase = () => {
       foodImage,
       foodId: _id,
     };
+    // console.log("test my data ", test);
     console.log(purchaseFood);
     axios
       .post("http://localhost:8000/purchases", purchaseFood)
@@ -39,6 +48,9 @@ const FoodPurchase = () => {
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">
           Purchase Food Item
         </h2>
+        {availableQuantity <= 0 && (
+          <p className="text-red-500 mb-4">This item is not available.</p>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-600">Food Name:</label>
@@ -109,7 +121,11 @@ const FoodPurchase = () => {
 
           <button
             type="submit"
-            className="bg-blue-500 text-white font-semibold rounded-md p-2 hover:bg-blue-600"
+            disabled={availableQuantity <= 0}
+            className={`bg-blue-500 text-white font-semibold rounded-md p-2 hover:bg-blue-600 ${
+              availableQuantity <= 0 && "opacity-50 cursor-not-allowed"
+            }`}
+            // className="bg-blue-500 text-white font-semibold rounded-md p-2 hover:bg-blue-600"
           >
             Purchase
           </button>
