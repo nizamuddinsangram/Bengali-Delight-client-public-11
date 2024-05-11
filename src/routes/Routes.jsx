@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFoodPage />,
-        loader: () => fetch("http://localhost:8000/allFoods"),
+        // loader: () => fetch("http://localhost:8000/allFoods"),
       },
       {
         path: "/singleFood/:id",

@@ -7,22 +7,14 @@ const FoodPurchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
   const { foodName, price, foodImage, _id, quantity } = foodData;
-
   const [availableQuantity, setAvailableQuantity] = useState(quantity);
-
-  //   console.log(foodData);
-
-  // if (test == 0) {
-  //   alert("cannot buy this product");
-  // }
-  //challending part
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const foodName = form.foodName.value;
     const price = form.price.value;
-    const quantity = form.quantity.value;
+    const quantity = parseInt(form.quantity.value);
     const date = form.buyingDate.value;
     const buyer_email = form.buyerEmail.value;
     const buyer_name = form.buyerName.value;
@@ -38,9 +30,10 @@ const FoodPurchase = () => {
     };
     // console.log("test my data ", test);
     console.log(purchaseFood);
-    axios
-      .post("http://localhost:8000/purchases", purchaseFood)
-      .then((res) => console.log(res.data));
+    axios.post("http://localhost:8000/purchases", purchaseFood).then((res) => {
+      setAvailableQuantity((prevQuantity) => prevQuantity - quantity);
+      console.log(res.data);
+    });
   };
   return (
     <div>
@@ -136,3 +129,16 @@ const FoodPurchase = () => {
 };
 
 export default FoodPurchase;
+// const { id } = useParams();
+// useEffect(() => {
+//   getData();
+// }, []);
+// const getData = async () => {
+//   const { data } = await axios(`http://localhost:8000/allFoods/${id}`);
+//   setItem(data);
+// };
+// console.log(item);
+
+// const { foodName: f, price: p, foodImage: I, _id: i, quantity: q } = item;
+
+// console.log(f, p, i, q, I);
