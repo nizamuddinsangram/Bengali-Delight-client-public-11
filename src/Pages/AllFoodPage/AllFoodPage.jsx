@@ -13,14 +13,28 @@ const AllFoodPage = () => {
     };
     getData();
   }, []);
-  console.log(allFoods);
-  const filteredFoods = allFoods.filter((food) =>
-    food.foodName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
+  const handleSearchChange = async (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    try {
+      if (query.trim() === "") {
+        // If query is empty, fetch all foods
+        const { data } = await axios("http://localhost:8000/allFoods");
+        setAllFoods(data);
+      } else {
+        const { data } = await axios(
+          `http://localhost:8000/search?foodName=${query}`
+        );
+        setAllFoods(data);
+      }
+    } catch (error) {
+      console.error("Error searching foods:", error);
+    }
   };
+
+  // const handleSearchChange = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
   return (
     <div>
       <input
@@ -30,7 +44,7 @@ const AllFoodPage = () => {
         onChange={handleSearchChange}
       />{" "}
       <div className="grid grid-cols-1 md:grid-cols-2e lg:grid-cols-3 gap-10">
-        {filteredFoods?.map((food) => (
+        {allFoods?.map((food) => (
           <AllFoodCard key={food._id} food={food}></AllFoodCard>
         ))}
       </div>
