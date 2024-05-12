@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Helmet } from "react-helmet-async";
-
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 const FoodPurchase = () => {
   const currentDate = new Date().toISOString().split("T")[0];
@@ -19,7 +19,24 @@ const FoodPurchase = () => {
     const quantity = parseInt(form.quantity.value);
     const date = form.buyingDate.value;
     const buyer_email = form.buyerEmail.value;
+    // console.log(buyer_email);
     const buyer_name = form.buyerName.value;
+    if (buyer_email === foodData.addedBy.email) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You can't purchase your own added food item!",
+      });
+      return;
+    }
+    if (quantity > availableQuantity) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Quantity exceeds available stock!",
+      });
+      return;
+    }
     const purchaseFood = {
       foodName,
       price,
@@ -32,10 +49,24 @@ const FoodPurchase = () => {
     };
     // console.log("test my data ", test);
     console.log(purchaseFood);
-    axios.post("http://localhost:8000/purchases", purchaseFood).then((res) => {
-      setAvailableQuantity((prevQuantity) => prevQuantity - quantity);
-      console.log(res.data);
-    });
+    axios
+      .post("http://localhost:8000/purchases", purchaseFood)
+      .then((res) => {
+        setAvailableQuantity((prevQuantity) => prevQuantity - quantity);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Item purchased successfully!",
+        });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      });
   };
   return (
     <div>

@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Helmet } from "react-helmet-async";
-
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyAddedFood = () => {
   const { user } = useContext(AuthContext);
@@ -20,10 +20,32 @@ const MyAddedFood = () => {
   };
 
   const handleDelete = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will not be able to recover this food item!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // If confirmed, make the delete request
+        const { data } = await axios.delete(
+          `http://localhost:8000/foods/${id}`
+        );
+        // Display success message
+        Swal.fire("Deleted!", "Your food item has been deleted.", "success");
+        // Refresh the data
+        getData();
+      }
+    });
+    //previous code
     // console.log(id);
-    const { data } = await axios.delete(`http://localhost:8000/foods/${id}`);
-    // console.log(data);
-    getData();
+    // const { data } = await axios.delete(`http://localhost:8000/foods/${id}`);
+    // // console.log(data);
+    // getData();
   };
   return (
     <>

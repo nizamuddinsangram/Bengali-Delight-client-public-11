@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Helmet } from "react-helmet-async";
-
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyOrderFood = () => {
   const { user } = useContext(AuthContext);
@@ -20,7 +20,11 @@ const MyOrderFood = () => {
     const { data } = await axios.delete(
       `http://localhost:8000/purchases/${id}`
     );
-    console.log(data);
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Item deleted successfully!",
+    });
     getData();
   };
   return (

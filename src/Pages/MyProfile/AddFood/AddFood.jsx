@@ -1,4 +1,6 @@
 import axios from "axios";
+import Swal from "sweetalert2";
+
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../provider/AuthProvider";
@@ -33,6 +35,13 @@ const AddFood = () => {
     console.log(addFood);
     axios.post("http://localhost:8000/foods", addFood).then((res) => {
       console.log(res.data);
+      if (res.data.acknowledged) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Food item added successfully!",
+        });
+      }
     });
   };
   return (

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyAddedFoodUpdate = () => {
   const updateData = useLoaderData();
@@ -51,6 +51,11 @@ const MyAddedFoodUpdate = () => {
     axios
       .put(`http://localhost:8000/foods/${_id}`, updatedFoodItem)
       .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Food item updated successfully!",
+        });
         console.log(res.data);
       });
   };
