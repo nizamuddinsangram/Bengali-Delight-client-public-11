@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 const FoodCard = ({ food }) => {
-  const { foodImage, foodName, foodCategory, price } = food;
+  const { foodImage, foodName, foodCategory, price, _id } = food;
   return (
     <div className="  w-11/12 mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
       <img className="object-cover w-full h-64" src={foodImage} alt="Article" />
@@ -24,9 +25,12 @@ const FoodCard = ({ food }) => {
         </div>
 
         {/* this is details button  */}
-        <button className="btn btn-sm w-full my-2 text-white font-bold bg-sky-400">
+        <Link
+          to={`/singleFood/${_id}`}
+          className="btn btn-sm w-full my-2 text-white font-bold bg-sky-400"
+        >
           Details Button
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import GalleryCard from "./GalleryCard";
 const GalleryPage = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,6 +25,13 @@ const GalleryPage = () => {
       console.log(res.data);
     });
   };
+  const openModal = () => {
+    if (user) {
+      document.getElementById("my_modal_1").showModal();
+    } else {
+      navigate("/login", { state: location.pathname });
+    }
+  };
   return (
     <div>
       <Helmet>
@@ -30,7 +41,7 @@ const GalleryPage = () => {
         <p>This is our gallery</p>
         <button
           className="btn bg-blue-500 text-white rounded-lg"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
+          onClick={openModal}
         >
           Open Modal
         </button>

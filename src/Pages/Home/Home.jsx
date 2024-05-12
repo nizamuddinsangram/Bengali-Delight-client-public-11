@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import TopFoods from "./TopFoods";
 
@@ -14,7 +15,9 @@ const Home = () => {
         <TopFoods />
         {/* this is a all card button  */}
         <div className="flex justify-center">
-          <button className="my-4 btn btn-sm bg-emerald-300">All Card</button>
+          <Link to="/allFood" className="my-4 btn btn-sm bg-emerald-300">
+            All Card
+          </Link>
         </div>
         {/* all card button end  */}
       </div>
