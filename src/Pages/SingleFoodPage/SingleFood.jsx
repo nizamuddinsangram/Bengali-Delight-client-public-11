@@ -13,25 +13,27 @@ const SingleFood = () => {
     _id,
   } = singleFood;
   return (
-    <div>
-      <div className="flex w-full h-full">
-        <div className="w-1/2">
-          <img src={foodImage} className="w-full" />
-        </div>
-        <div className="w-1/2 text-center">
-          <p>{foodName}</p>
-          <p>{foodCategory}</p>
+    <>
+      <div>
+        <div className="flex w-full h-full">
+          <div className="w-1/2">
+            <img src={foodImage} className="w-full" />
+          </div>
+          <div className="w-1/2 text-center">
+            <p>{foodName}</p>
+            <p>{foodCategory}</p>
 
-          <p>{addedBy?.name}</p>
+            <p>{addedBy?.name}</p>
+          </div>
         </div>
+        <Link
+          to={`/foodPurchases/${_id}`}
+          className="w-full text-white font-black  btn   my-4 bg-green-500"
+        >
+          Purchase
+        </Link>
       </div>
-      <Link
-        to={`/foodPurchases/${_id}`}
-        className="w-full text-white font-black  btn   my-4 bg-green-500"
-      >
-        Purchase
-      </Link>
-    </div>
+    </>
   );
 };
 

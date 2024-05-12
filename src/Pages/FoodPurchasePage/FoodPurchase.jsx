@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+
 import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -37,6 +39,9 @@ const FoodPurchase = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Bengali Delights || Food Purchase</title>
+      </Helmet>
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">
           Purchase Food Item

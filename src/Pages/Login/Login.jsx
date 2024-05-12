@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -42,6 +43,9 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Bengali Delights || LOGIN</title>
+      </Helmet>
       <div className="flex justify-center items-center min-h-[calc(100vh-306px)]">
         <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
           <div

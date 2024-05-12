@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../provider/AuthProvider";
 import GalleryCard from "./GalleryCard";
 const GalleryPage = () => {
@@ -22,6 +23,9 @@ const GalleryPage = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Bengali Delights || Gallery </title>
+      </Helmet>
       <div className="container mx-auto p-4">
         <p>This is our gallery</p>
         <button

@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import TopFoods from "./TopFoods";
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Bengali Delights || HOME</title>
+      </Helmet>
       <Banner />
       {/* this is our top foods section  */}
       <div>

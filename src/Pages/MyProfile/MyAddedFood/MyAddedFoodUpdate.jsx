@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
+
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyAddedFoodUpdate = () => {
@@ -54,6 +56,9 @@ const MyAddedFoodUpdate = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Bengali Delights || Update Food </title>
+      </Helmet>
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Update Food Item</h1>
         <form

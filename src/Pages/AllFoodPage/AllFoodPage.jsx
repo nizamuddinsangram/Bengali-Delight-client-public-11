@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+
 import { useEffect, useState } from "react";
 import AllFoodCard from "./AllFoodCard";
 const AllFoodPage = () => {
@@ -37,6 +39,9 @@ const AllFoodPage = () => {
   // };
   return (
     <div>
+      <Helmet>
+        <title>Bengali Delights || All Food</title>
+      </Helmet>
       <input
         type="text"
         placeholder="Search food..."
