@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import img1 from "../../assets/loginImage.png";
 import { AuthContext } from "../../provider/AuthProvider";
 const Register = () => {
@@ -26,6 +26,11 @@ const Register = () => {
           displayName: data.name,
           photoURL: data.photo,
         }).then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Registration successful!",
+          });
           reset();
           console.log("updated profile");
         });
@@ -33,6 +38,11 @@ const Register = () => {
         // update profile end
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
         console.log(error.message);
       });
   };
