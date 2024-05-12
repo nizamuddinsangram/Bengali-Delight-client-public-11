@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/loginImage.png";
@@ -23,20 +24,40 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         reset();
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: "You have successfully logged in.",
+        });
         console.log(result.user);
         navigate(location?.state ? location?.state : "/");
       })
       .catch((err) => {
         console.log(err.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.message,
+        });
       });
   };
   const handleGoogleSubmit = () => {
     googleSignIn()
       .then((result) => {
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: "You have successfully logged in.",
+        });
         navigate(location?.state ? location?.state : "/");
         console.log(result.user);
       })
       .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.message,
+        });
         console.log(err.message);
       });
   };
