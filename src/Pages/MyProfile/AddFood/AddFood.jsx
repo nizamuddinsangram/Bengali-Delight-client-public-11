@@ -33,16 +33,18 @@ const AddFood = () => {
       numberOfPurchases,
     };
     console.log(addFood);
-    axios.post("http://localhost:8000/foods", addFood).then((res) => {
-      console.log(res.data);
-      if (res.data.acknowledged) {
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Food item added successfully!",
-        });
-      }
-    });
+    axios
+      .post("https://bengali-delights-server-lilac.vercel.app/foods", addFood)
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Food item added successfully!",
+          });
+        }
+      });
   };
   return (
     <>

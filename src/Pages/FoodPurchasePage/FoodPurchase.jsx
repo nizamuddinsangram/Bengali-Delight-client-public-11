@@ -1,10 +1,11 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 import { AuthContext } from "../../provider/AuthProvider";
 const FoodPurchase = () => {
+  const axiosSecure = useAxiosSecure();
   const currentDate = new Date().toISOString().split("T")[0];
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
@@ -50,8 +51,11 @@ const FoodPurchase = () => {
     };
     // console.log("test my data ", test);
     console.log(purchaseFood);
-    axios
-      .post("http://localhost:8000/purchases", purchaseFood)
+    axiosSecure
+      .post(
+        "https://bengali-delights-server-lilac.vercel.app/purchases",
+        purchaseFood
+      )
       .then((res) => {
         setAvailableQuantity((prevQuantity) => prevQuantity - quantity);
         Swal.fire({
@@ -59,7 +63,7 @@ const FoodPurchase = () => {
           title: "Success",
           text: "Item purchased successfully!",
         });
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         Swal.fire({
@@ -171,7 +175,7 @@ export default FoodPurchase;
 //   getData();
 // }, []);
 // const getData = async () => {
-//   const { data } = await axios(`http://localhost:8000/allFoods/${id}`);
+//   const { data } = await axios(`https://bengali-delights-server-lilac.vercel.app/allFoods/${id}`);
 //   setItem(data);
 // };
 // console.log(item);

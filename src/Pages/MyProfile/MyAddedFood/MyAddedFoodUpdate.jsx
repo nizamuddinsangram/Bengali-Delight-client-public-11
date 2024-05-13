@@ -47,16 +47,19 @@ const MyAddedFoodUpdate = () => {
       shortDescription,
       numberOfPurchases,
     };
-    console.log(updatedFoodItem);
+    // console.log(updatedFoodItem);
     axios
-      .put(`http://localhost:8000/foods/${_id}`, updatedFoodItem)
+      .put(
+        `https://bengali-delights-server-lilac.vercel.app/foods/${_id}`,
+        updatedFoodItem
+      )
       .then((res) => {
         Swal.fire({
           icon: "success",
           title: "Success",
           text: "Food item updated successfully!",
         });
-        console.log(res.data);
+        // console.log(res.data);
       });
   };
   return (

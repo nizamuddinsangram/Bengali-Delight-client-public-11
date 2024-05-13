@@ -50,7 +50,7 @@ const Login = () => {
           text: "You have successfully logged in.",
         });
         navigate(location?.state ? location?.state : "/");
-        console.log(result.user);
+        // console.log(result.user);
       })
       .catch((err) => {
         Swal.fire({
@@ -58,7 +58,7 @@ const Login = () => {
           title: "Oops...",
           text: err.message,
         });
-        console.log(err.message);
+        // console.log(err.message);
       });
   };
 

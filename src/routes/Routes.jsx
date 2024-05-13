@@ -35,13 +35,15 @@ const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFoodPage />,
-        // loader: () => fetch("http://localhost:8000/allFoods"),
+        // loader: () => fetch("https://bengali-delights-server-lilac.vercel.app/allFoods"),
       },
       {
         path: "/singleFood/:id",
         element: <SingleFood />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allFoods/${params.id}`),
+          fetch(
+            `https://bengali-delights-server-lilac.vercel.app/allFoods/${params.id}`
+          ),
       },
       {
         path: "/foodPurchases/:id",
@@ -51,7 +53,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allFoods/${params.id}`),
+          fetch(
+            `https://bengali-delights-server-lilac.vercel.app/allFoods/${params.id}`
+          ),
       },
       {
         path: "/myAddedFood",
@@ -69,7 +73,9 @@ const router = createBrowserRouter([
         path: "/myAddedFoodUpdate/:id",
         element: <MyAddedFoodUpdate />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allFoods/${params.id}`),
+          fetch(
+            `https://bengali-delights-server-lilac.vercel.app/allFoods/${params.id}`
+          ),
       },
       {
         path: "/gallery",

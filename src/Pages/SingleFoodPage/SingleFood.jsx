@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 const SingleFood = () => {
   const singleFood = useLoaderData();
-  console.log(singleFood);
+  // console.log(singleFood);
   const {
     foodImage,
     shortDescription,

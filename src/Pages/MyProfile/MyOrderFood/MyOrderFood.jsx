@@ -7,7 +7,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 const MyOrderFood = () => {
   const { user } = useContext(AuthContext);
   const [orderItem, setOrderItem] = useState();
-  const url = `http://localhost:8000/purchases/${user?.email}`;
+  const url = `https://bengali-delights-server-lilac.vercel.app/purchases/${user?.email}`;
   const getData = async () => {
     const { data } = await axios(url);
     setOrderItem(data);
@@ -18,7 +18,7 @@ const MyOrderFood = () => {
   console.log(orderItem);
   const handleDelete = async (id) => {
     const { data } = await axios.delete(
-      `http://localhost:8000/purchases/${id}`
+      `https://bengali-delights-server-lilac.vercel.app/purchases/${id}`
     );
     Swal.fire({
       icon: "success",

@@ -43,20 +43,28 @@ const AuthProvider = ({ children }) => {
       const loggedEmail = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
-      console.log(currentUser);
+      // console.log(currentUser);
       if (currentUser) {
         axios
-          .post("http://localhost:8000/jwt", loggedEmail, {
-            withCredentials: true,
-          })
+          .post(
+            "https://bengali-delights-server-lilac.vercel.app/jwt",
+            loggedEmail,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });
       } else {
         axios
-          .post("http://localhost:8000/logout", loggedEmail, {
-            withCredentials: true,
-          })
+          .post(
+            "https://bengali-delights-server-lilac.vercel.app/logout",
+            loggedEmail,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => console.log(res.data));
       }
     });

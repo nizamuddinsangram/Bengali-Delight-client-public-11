@@ -22,9 +22,14 @@ const GalleryPage = () => {
       image,
     };
     console.log(feedback);
-    axios.post("http://localhost:8000/feedback", feedback).then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .post(
+        "https://bengali-delights-server-lilac.vercel.app/feedback",
+        feedback
+      )
+      .then((res) => {
+        console.log(res.data);
+      });
   };
   const openModal = () => {
     if (user) {

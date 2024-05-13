@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "https://bengali-delights-server-lilac.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {

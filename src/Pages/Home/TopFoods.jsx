@@ -5,7 +5,9 @@ const TopFoods = () => {
   const [foods, setFood] = useState([]);
   useEffect(() => {
     const getFood = async () => {
-      const { data } = await axios("http://localhost:8000/foods");
+      const { data } = await axios(
+        "https://bengali-delights-server-lilac.vercel.app/foods"
+      );
       setFood(data);
     };
     getFood();

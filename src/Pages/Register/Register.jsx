@@ -20,7 +20,7 @@ const Register = () => {
     const password = data.password;
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         //update profile
         updateProfile(result.user, {
           displayName: data.name,
@@ -32,7 +32,7 @@ const Register = () => {
             text: "Registration successful!",
           });
           reset();
-          console.log("updated profile");
+          // console.log("updated profile");
         });
 
         // update profile end
@@ -43,7 +43,7 @@ const Register = () => {
           title: "Oops...",
           text: error.message,
         });
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

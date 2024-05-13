@@ -11,7 +11,9 @@ const AllFoodPage = () => {
   // const allFoods = useLoaderData();
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios("http://localhost:8000/allFoods");
+      const { data } = await axios(
+        "https://bengali-delights-server-lilac.vercel.app/allFoods"
+      );
       setAllFoods(data);
     };
     getData();
@@ -22,16 +24,18 @@ const AllFoodPage = () => {
     try {
       if (query.trim() === "") {
         // If query is empty, fetch all foods
-        const { data } = await axios("http://localhost:8000/allFoods");
+        const { data } = await axios(
+          "https://bengali-delights-server-lilac.vercel.app/allFoods"
+        );
         setAllFoods(data);
       } else {
         const { data } = await axios(
-          `http://localhost:8000/search?foodName=${query}`
+          `https://bengali-delights-server-lilac.vercel.app/search?foodName=${query}`
         );
         setAllFoods(data);
       }
     } catch (error) {
-      console.error("Error searching foods:", error);
+      console.error(error);
     }
   };
 

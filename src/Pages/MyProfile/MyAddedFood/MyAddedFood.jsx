@@ -8,7 +8,7 @@ const MyAddedFood = () => {
   const { user } = useContext(AuthContext);
   const [foodItems, setFoodItems] = useState();
 
-  const url = `http://localhost:8000/foods/${user?.email}`;
+  const url = `https://bengali-delights-server-lilac.vercel.app/foods/${user?.email}`;
 
   useEffect(() => {
     getData();
@@ -16,7 +16,7 @@ const MyAddedFood = () => {
   const getData = async () => {
     const { data } = await axios(url);
     setFoodItems(data);
-    console.log(data);
+    // console.log(data);
   };
 
   const handleDelete = async (id) => {
@@ -33,7 +33,7 @@ const MyAddedFood = () => {
       if (result.isConfirmed) {
         // If confirmed, make the delete request
         const { data } = await axios.delete(
-          `http://localhost:8000/foods/${id}`
+          `https://bengali-delights-server-lilac.vercel.app/foods/${id}`
         );
         // Display success message
         Swal.fire("Deleted!", "Your food item has been deleted.", "success");
@@ -43,7 +43,7 @@ const MyAddedFood = () => {
     });
     //previous code
     // console.log(id);
-    // const { data } = await axios.delete(`http://localhost:8000/foods/${id}`);
+    // const { data } = await axios.delete(`https://bengali-delights-server-lilac.vercel.app/foods/${id}`);
     // // console.log(data);
     // getData();
   };
