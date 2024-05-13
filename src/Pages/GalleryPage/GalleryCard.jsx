@@ -33,6 +33,9 @@ const GalleryCard = () => {
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-white">
               <div>
+                <p className="text-lg font-black text-red-300">
+                  Our Client FeedBack
+                </p>
                 <h2 className="text-lg font-bold">{item.name}</h2>
                 <p>{item.experience}</p>
               </div>

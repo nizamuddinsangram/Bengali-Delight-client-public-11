@@ -44,11 +44,11 @@ const GalleryPage = () => {
         <title>Bengali Delights || Gallery </title>
       </Helmet>
       <GalleryBanner />
-      <div className="container mx-auto p-4">
-        <div className="flex justify-center items-center ">
+      <div className="container mx-auto p-4 ">
+        <div className="flex justify-center items-center mb-6">
           <p>This is our gallery</p>
           <button
-            className="btn btn-sm ml-3 bg-blue-500 text-white rounded-lg"
+            className="btn btn-sm ml-3 bg-sky-500 text-white rounded-lg"
             onClick={openModal}
           >
             Open Modal
@@ -104,7 +104,7 @@ const GalleryPage = () => {
                 </button>
                 <button
                   type="button"
-                  className="btn"
+                  className="btn btn-accent"
                   onClick={() => {
                     const modal = document.getElementById("my_modal_1");
                     modal?.close();

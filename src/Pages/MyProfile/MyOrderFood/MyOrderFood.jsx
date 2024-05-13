@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyOrderFood = () => {
@@ -11,11 +10,12 @@ const MyOrderFood = () => {
   const getData = async () => {
     const { data } = await axios(url);
     setOrderItem(data);
+    // console.log(data);
   };
   useEffect(() => {
     getData();
   }, []);
-  console.log(orderItem);
+  // console.log(orderItem);
   const handleDelete = async (id) => {
     const { data } = await axios.delete(
       `https://bengali-delights-server-lilac.vercel.app/purchases/${id}`
@@ -34,12 +34,12 @@ const MyOrderFood = () => {
       </Helmet>
       <section className="container px-4 mx-auto">
         <div className="flex items-center gap-x-3">
-          <h2 className="text-lg font-medium text-gray-800 dark:text-white">
-            Team members
+          <h2 className="text-lg font-medium mt-4 text-gray-800 dark:text-white">
+            My Order Food
           </h2>
 
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-            100 users
+            {orderItem?.length}
           </span>
         </div>
 
@@ -57,7 +57,7 @@ const MyOrderFood = () => {
                         className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-2">
-                          <span>Status</span>
+                          <span>Food Name</span>
 
                           <svg
                             className="h-3"
@@ -92,7 +92,7 @@ const MyOrderFood = () => {
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-2">
-                          <span>Role</span>
+                          <span>Price</span>
 
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -115,14 +115,14 @@ const MyOrderFood = () => {
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Email address
+                        Added Time
                       </th>
 
                       <th
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Teams
+                        Food Owner
                       </th>
 
                       <th scope="col" className="relative py-3.5 px-4">
@@ -147,40 +147,27 @@ const MyOrderFood = () => {
                                 <h2 className="font-medium text-gray-800 dark:text-white ">
                                   Arthur Melo
                                 </h2>
-                                <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                                  @authurmelo
-                                </p>
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                            {/* <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> */}
 
                             <h2 className="text-sm font-normal text-emerald-500">
-                              Active
+                              {item?.foodName}
                             </h2>
                           </div>
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          Design Director
+                          ${item?.price}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          authurmelo@example.com
+                          {item?.date}
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
-                          <div className="flex items-center gap-x-2">
-                            <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
-                              Design
-                            </p>
-                            <p className="px-3 py-1 text-xs text-blue-500 rounded-full dark:bg-gray-800 bg-blue-100/60">
-                              Product
-                            </p>
-                            <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60">
-                              Marketing
-                            </p>
-                          </div>
+                          {item?.buyer_name}
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
@@ -204,7 +191,7 @@ const MyOrderFood = () => {
                               </svg>
                             </button>
 
-                            <Link
+                            {/* <Link
                               // to={`/myAddedFoodUpdate/${item._id}`}
                               className="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none"
                             >
@@ -222,7 +209,7 @@ const MyOrderFood = () => {
                                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                                 />
                               </svg>
-                            </Link>
+                            </Link> */}
                           </div>
                         </td>
                       </tr>

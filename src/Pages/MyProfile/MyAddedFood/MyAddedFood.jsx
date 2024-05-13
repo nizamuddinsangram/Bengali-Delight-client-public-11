@@ -53,13 +53,13 @@ const MyAddedFood = () => {
         <title>Bengali Delights || My Added Food </title>
       </Helmet>
       <section className="container px-4 mx-auto">
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3 mt-4">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">
-            Team members
+            My Added Food
           </h2>
 
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-            100 users
+            {foodItems?.length} Food
           </span>
         </div>
 
@@ -70,14 +70,14 @@ const MyAddedFood = () => {
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                   <thead className="bg-gray-50 dark:bg-gray-800">
                     <tr>
-                      <th></th>
+                      <th>Image</th>
 
                       <th
                         scope="col"
                         className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-2">
-                          <span>Status</span>
+                          <span>Name</span>
 
                           <svg
                             className="h-3"
@@ -112,7 +112,7 @@ const MyAddedFood = () => {
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-2">
-                          <span>Role</span>
+                          <span>Price</span>
 
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -138,12 +138,12 @@ const MyAddedFood = () => {
                         Email address
                       </th>
 
-                      <th
+                      {/* <th
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         Teams
-                      </th>
+                      </th> */}
 
                       <th scope="col" className="relative py-3.5 px-4">
                         <span className="sr-only">Edit</span>
@@ -163,33 +163,33 @@ const MyAddedFood = () => {
                                 src={item?.foodImage}
                                 alt=""
                               />
-                              <div>
+                              {/* <div>
                                 <h2 className="font-medium text-gray-800 dark:text-white ">
                                   Arthur Melo
                                 </h2>
                                 <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
                                   @authurmelo
                                 </p>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </td>
                         <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                            {/* <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> */}
 
                             <h2 className="text-sm font-normal text-emerald-500">
-                              Active
+                              {item?.foodName}
                             </h2>
                           </div>
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          Design Director
+                          {item?.price}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          authurmelo@example.com
+                          {item?.addedBy?.email}
                         </td>
-                        <td className="px-4 py-4 text-sm whitespace-nowrap">
+                        {/* <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-2">
                             <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
                               Design
@@ -201,7 +201,7 @@ const MyAddedFood = () => {
                               Marketing
                             </p>
                           </div>
-                        </td>
+                        </td> */}
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
                             <button

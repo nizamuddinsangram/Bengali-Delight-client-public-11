@@ -17,7 +17,7 @@ const MyAddedFoodUpdate = () => {
     addedBy,
     foodOrigin,
     quantity,
-    numberOfPurchases,
+    // numberOfPurchases,
     _id,
   } = updateData;
 
@@ -35,7 +35,7 @@ const MyAddedFoodUpdate = () => {
     };
     const foodOrigin = form.foodOrigin.value;
     const shortDescription = form.shortDescription.value;
-    const numberOfPurchases = parseFloat(form.numberOfPurchases.value);
+    // const numberOfPurchases = parseFloat(form.numberOfPurchases.value);
     const updatedFoodItem = {
       foodName,
       foodImage,
@@ -45,7 +45,7 @@ const MyAddedFoodUpdate = () => {
       addedBy,
       foodOrigin,
       shortDescription,
-      numberOfPurchases,
+      // numberOfPurchases,
     };
     // console.log(updatedFoodItem);
     axios
@@ -196,7 +196,7 @@ const MyAddedFoodUpdate = () => {
               required
             ></textarea>
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Number of Purchases
             </label>
@@ -208,7 +208,7 @@ const MyAddedFoodUpdate = () => {
               defaultValue={numberOfPurchases}
               required
             />
-          </div>
+          </div> */}
           <button
             type="submit"
             className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600"

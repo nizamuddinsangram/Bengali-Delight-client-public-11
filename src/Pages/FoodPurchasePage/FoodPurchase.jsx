@@ -74,11 +74,11 @@ const FoodPurchase = () => {
       });
   };
   return (
-    <div>
+    <div className="w-1/2 mx-auto">
       <Helmet>
         <title>Bengali Delights || Food Purchase</title>
       </Helmet>
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+      <div className="bg-gray-100 w-full p-6 rounded-lg shadow-lg ">
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">
           Purchase Food Item
         </h2>
