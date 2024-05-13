@@ -11,7 +11,6 @@ import MyAddedFoodUpdate from "../Pages/MyProfile/MyAddedFood/MyAddedFoodUpdate"
 import MyOrderFood from "../Pages/MyProfile/MyOrderFood/MyOrderFood";
 import Register from "../Pages/Register/Register";
 import SingleFood from "../Pages/SingleFoodPage/SingleFood";
-import Test from "../Pages/Test/Test";
 import Main from "../layout/Main";
 import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
@@ -81,14 +80,14 @@ const router = createBrowserRouter([
         path: "/gallery",
         element: <GalleryPage />,
       },
-      {
-        path: "/test",
-        element: (
-          <PrivateRoute>
-            <Test />
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/test",
+      //   element: (
+      //     <PrivateRoute>
+      //       <Test />
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
 ]);
