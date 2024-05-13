@@ -1,13 +1,13 @@
-import img from "../../assets/maxresdefault.jpg";
+import img from "../../assets/image/img1.jpg";
 
 const AllFoodBanner = () => {
   return (
-    <div className="relative mb-10">
+    <div className="relative mb-10 rounded-full">
       {/* Banner Image */}
       <img
         src={img}
         alt="All Foods Banner"
-        className="w-full h-[60vh] object-cover"
+        className="w-full h-[40vh] object-cover rounded-lg"
       />
 
       {/* Dark Overlay */}

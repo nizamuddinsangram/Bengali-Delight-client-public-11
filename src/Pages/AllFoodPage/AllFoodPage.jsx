@@ -48,9 +48,12 @@ const AllFoodPage = () => {
         <title>Bengali Delights || All Food</title>
       </Helmet>
       <AllFoodBanner />
-      <div className="my-6 w-full text-center">
+      <div className="my-10 w-full text-center ">
+        <span className="text-xl px-10 font-bold text-red-500">
+          Search Your favourite Food
+        </span>
         <input
-          className="w-1/2 p-2 rounded-lg"
+          className="w-1/2 p-2 text-black rounded-lg bg-sky-100"
           type="text"
           placeholder="Search food..."
           value={searchQuery}

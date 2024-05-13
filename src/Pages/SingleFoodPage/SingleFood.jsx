@@ -15,18 +15,23 @@ const SingleFood = () => {
   return (
     <>
       <div>
-        <div className="flex w-full h-full">
+        <div className="flex w-full h-full items-center">
           <div className="w-1/2">
             <img src={foodImage} className="w-full" />
           </div>
           <div className="w-1/2 text-center">
-            <p>{foodName}</p>
-            <p>{price}</p>
-            <p>{foodCategory}</p>
-            <p>{foodOrigin}</p>
+            <p className="text-4xl mb-2 font-bold">{foodName}</p>
+            <p className="text-xl font-medium mb-2">{shortDescription}</p>
+            <span className="flex justify-around mb-3">
+              <p className="text-lg font-medium ">Category: {foodCategory}</p>
+              <p className="text-lg font-medium">Price: {price}</p>
+            </span>
 
-            <p>{addedBy?.name}</p>
-            <p>{shortDescription}</p>
+            <span className="flex justify-around ">
+              <p className="text-lg font-medium"> Country:{foodOrigin}</p>
+
+              <p className="text-lg font-medium">Add By:{addedBy?.name}</p>
+            </span>
           </div>
         </div>
         <Link

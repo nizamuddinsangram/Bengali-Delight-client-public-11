@@ -18,7 +18,7 @@ const FoodCard = ({ food }) => {
             >
               {foodName}
             </a>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-2 text-lg font-medium text-gray-600 dark:text-gray-400">
               Price: {price}
             </p>
           </div>
@@ -29,7 +29,7 @@ const FoodCard = ({ food }) => {
           to={`/singleFood/${_id}`}
           className="btn btn-sm w-full my-2 text-white font-bold bg-sky-400"
         >
-          Details Button
+          DETAILS
         </Link>
       </div>
     </div>
