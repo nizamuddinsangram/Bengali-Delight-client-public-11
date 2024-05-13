@@ -5,6 +5,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import img2 from "../../assets/image/img1.jpg";
+import img3 from "../../assets/image/img2.jpg";
+import img4 from "../../assets/image/img3.jpg";
+import img5 from "../../assets/image/img55.png";
 import img1 from "../../assets/pexels-photo-1640777.jpeg";
 // import "./Banner.css";
 const Banner = () => {
@@ -48,7 +52,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative rounded-lg banner-image h-[60vh] lg:h-[80vh]">
-              <img src={img1} className="w-full h-full object-cover" />
+              <img src={img2} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
@@ -69,7 +73,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative rounded-lg banner-image h-[60vh] lg:h-[80vh]">
-              <img src={img1} className="w-full h-full object-cover" />
+              <img src={img3} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
@@ -90,7 +94,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative rounded-lg banner-image h-[60vh] lg:h-[80vh]">
-              <img src={img1} className="w-full h-full object-cover" />
+              <img src={img4} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
@@ -111,7 +115,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative rounded-lg banner-image h-[60vh] lg:h-[80vh]">
-              <img src={img1} className="w-full h-full object-cover" />
+              <img src={img5} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
