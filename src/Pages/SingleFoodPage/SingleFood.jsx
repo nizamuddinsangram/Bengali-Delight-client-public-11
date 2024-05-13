@@ -21,9 +21,12 @@ const SingleFood = () => {
           </div>
           <div className="w-1/2 text-center">
             <p>{foodName}</p>
+            <p>{price}</p>
             <p>{foodCategory}</p>
+            <p>{foodOrigin}</p>
 
             <p>{addedBy?.name}</p>
+            <p>{shortDescription}</p>
           </div>
         </div>
         <Link

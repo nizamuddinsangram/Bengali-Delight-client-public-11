@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import GalleryBanner from "./GalleryBanner";
 import GalleryCard from "./GalleryCard";
 const GalleryPage = () => {
   const { user } = useContext(AuthContext);
@@ -37,14 +38,17 @@ const GalleryPage = () => {
       <Helmet>
         <title>Bengali Delights || Gallery </title>
       </Helmet>
+      <GalleryBanner />
       <div className="container mx-auto p-4">
-        <p>This is our gallery</p>
-        <button
-          className="btn bg-blue-500 text-white rounded-lg"
-          onClick={openModal}
-        >
-          Open Modal
-        </button>
+        <div className="flex justify-center items-center ">
+          <p>This is our gallery</p>
+          <button
+            className="btn btn-sm ml-3 bg-blue-500 text-white rounded-lg"
+            onClick={openModal}
+          >
+            Open Modal
+          </button>
+        </div>
 
         <dialog id="my_modal_1" className="modal">
           <div className="modal-box">

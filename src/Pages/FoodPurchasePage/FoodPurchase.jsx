@@ -8,6 +8,7 @@ const FoodPurchase = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
+  console.log(foodData);
   const { foodName, price, foodImage, _id, quantity } = foodData;
   const [availableQuantity, setAvailableQuantity] = useState(quantity);
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 
 import { useEffect, useState } from "react";
+import AllFoodBanner from "./AllFoodBanner";
 import AllFoodCard from "./AllFoodCard";
 const AllFoodPage = () => {
   const [allFoods, setAllFoods] = useState([]);
@@ -42,13 +43,17 @@ const AllFoodPage = () => {
       <Helmet>
         <title>Bengali Delights || All Food</title>
       </Helmet>
-      <input
-        type="text"
-        placeholder="Search food..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />{" "}
-      <div className="grid grid-cols-1 md:grid-cols-2e lg:grid-cols-3 gap-10">
+      <AllFoodBanner />
+      <div className="my-6 w-full text-center">
+        <input
+          className="w-1/2 p-2 rounded-lg"
+          type="text"
+          placeholder="Search food..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
         {allFoods?.map((food) => (
           <AllFoodCard key={food._id} food={food}></AllFoodCard>
         ))}
