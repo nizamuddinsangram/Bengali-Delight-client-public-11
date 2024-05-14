@@ -35,7 +35,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
-                  Discover Culinary Delights with FoodieHub
+                  Discover Culinary Delights with Bengali Delights
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl px-4 mb-4 lg:mb-6 text-center">
                   Explore a world of flavors, from savory classics to exotic
@@ -56,7 +56,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
-                  Discover Culinary Delights with FoodieHub
+                  Discover Culinary Delights with Bengali Delights
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl px-4 mb-4 lg:mb-6 text-center">
                   Explore a world of flavors, from savory classics to exotic
@@ -77,7 +77,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
-                  Discover Culinary Delights with FoodieHub
+                  Discover Culinary Delights with Bengali Delights
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl px-4 mb-4 lg:mb-6 text-center">
                   Explore a world of flavors, from savory classics to exotic
@@ -98,7 +98,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
-                  Discover Culinary Delights with FoodieHub
+                  Discover Culinary Delights with Bengali Delights
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl px-4 mb-4 lg:mb-6 text-center">
                   Explore a world of flavors, from savory classics to exotic
@@ -119,7 +119,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                 <h1 className="text-2xl sm:text-xl md:text-4xl lg:text-5xl lg:mb-4 px-4 text-center">
-                  Discover Culinary Delights with FoodieHub
+                  Discover Culinary Delights with Bengali Delights
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl px-4 mb-4 lg:mb-6 text-center">
                   Explore a world of flavors, from savory classics to exotic
