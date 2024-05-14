@@ -20,6 +20,7 @@ const AddFood = () => {
     };
     const foodOrigin = form.foodOrigin.value;
     const shortDescription = form.shortDescription.value;
+    const numberOfPurchases = 0;
     // const numberOfPurchases = parseFloat(form.numberOfPurchases.value);
     const addFood = {
       foodName,
@@ -30,6 +31,7 @@ const AddFood = () => {
       addedBy,
       foodOrigin,
       shortDescription,
+      numberOfPurchases,
     };
     console.log(addFood);
     axios
