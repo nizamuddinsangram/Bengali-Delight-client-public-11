@@ -1,4 +1,5 @@
-import img from "../../assets/image/meat image.jpg";
+import img from "../../assets/image/charcoal grill.avif";
+import img2 from "../../assets/image/pakistani tradational food.jpg";
 const OurLatestFood = () => {
   return (
     <div className="grid  grid-cols-1  lg:grid-cols-2  w-9/12 mx-auto">
@@ -12,7 +13,7 @@ const OurLatestFood = () => {
 
         <div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
           <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
-            Meat Kari
+            Charcoal Grill
           </h3>
 
           <div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
@@ -29,13 +30,13 @@ const OurLatestFood = () => {
         <div
           className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
           style={{
-            backgroundImage: `url(${img})`,
+            backgroundImage: `url(${img2})`,
           }}
         ></div>
 
         <div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
           <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
-            Meat Kari
+            Pakistani Food
           </h3>
 
           <div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">

@@ -8,7 +8,9 @@ const Footer = () => {
           Bengali Delights <br />
           Providing service since 1992
         </p>
-        <p>Copyright © 2024 - All right reserved</p>
+        <p>
+          Copyright © 2024 - All right reserved <strong>Sangram</strong>
+        </p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">

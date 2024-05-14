@@ -141,25 +141,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-{
-  /* <div className="relative rounded-lg banner-image h-[80vh]">
-              <img src={img1} className="w-full h-full object-cover " />
-              <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
-              <div className="swiper-content absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
-                <h1 className=" text-2xl sm:px-4 lg:text-4xl lg:mb-4">
-                  Discover Culinary Delights with FoodieHub
-                </h1>
-                <p className="text-lg px-4 lg:mb-6">
-                  Explore a world of flavors, from savory classics to exotic
-                  delicacies. Join us on a gastronomic journey like no other!
-                </p>
-                <Link
-                  to="/allFood"
-                  className="btn bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-md text-white border-none border-b-4"
-                >
-                  Explore All Foods
-                </Link>
-              </div>
-            </div> */
-}
