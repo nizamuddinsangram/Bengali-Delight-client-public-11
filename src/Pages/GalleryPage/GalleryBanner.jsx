@@ -6,7 +6,7 @@ const GalleryBanner = () => {
       <img
         src={img}
         alt="All Foods Banner"
-        className="w-full h-[60vh] object-cover"
+        className="w-full h-[50vh] lg:h-[60vh] object-cover"
       />
 
       {/* Dark Overlay */}

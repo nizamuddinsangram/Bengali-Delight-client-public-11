@@ -9,7 +9,7 @@ const FoodPurchase = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
-  console.log(foodData);
+  // console.log(foodData);
   const { foodName, price, foodImage, _id, quantity } = foodData;
   const [availableQuantity, setAvailableQuantity] = useState(quantity);
 
@@ -50,7 +50,7 @@ const FoodPurchase = () => {
       foodId: _id,
     };
     // console.log("test my data ", test);
-    console.log(purchaseFood);
+    // console.log(purchaseFood);
     axiosSecure
       .post(
         "https://bengali-delights-server-lilac.vercel.app/purchases",
