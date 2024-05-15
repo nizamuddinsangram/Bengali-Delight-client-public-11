@@ -2,19 +2,23 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { AuthContext } from "../../../provider/AuthProvider";
 const MyOrderFood = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [orderItem, setOrderItem] = useState();
   const url = `https://bengali-delights-server-lilac.vercel.app/purchases/${user?.email}`;
   const getData = async () => {
-    const { data } = await axios(url);
+    const { data } = await axiosSecure(url, { withCredentials: true });
     setOrderItem(data);
     // console.log(data);
   };
   useEffect(() => {
-    getData();
-  }, []);
+    if (user?.email) {
+      getData();
+    }
+  }, [user?.email]);
   // console.log(orderItem);
   const handleDelete = async (id) => {
     const { data } = await axios.delete(
