@@ -13,9 +13,9 @@ const GalleryBanner = () => {
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Banner Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4 text-center font-bold">
-          Discover Delicious Foods
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-gray-300 z-10">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl mb-2 lg:mb-4 text-center font-bold">
+          Our Gallery Page
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl mb-6 text-center  px-4">
           Indulge in a culinary adventure and explore a wide array of

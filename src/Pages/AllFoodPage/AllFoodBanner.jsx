@@ -15,10 +15,10 @@ const AllFoodBanner = () => {
 
       {/* Banner Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4 text-center font-bold">
-          Discover Delicious Foods
+        <h1 className="text-3xl md:text-5xl lg:text-6xl mb-4 text-center font-bold text-gray-300">
+          OUR ALL FOOD PAGE
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl mb-6 text-center  px-4">
+        <p className="text-lg md:text-xl lg:text-2xl mb-6 text-center  px-4 text-gray-300">
           Indulge in a culinary adventure and explore a wide array of
           mouthwatering
           <br />
