@@ -22,20 +22,20 @@ const Register = () => {
     const password = data.password;
     createUser(email, password)
       .then((result) => {
-        navigate(location?.state ? location?.state : "/");
         // console.log(result.user);
         //update profile
         updateProfile(result.user, {
           displayName: data.name,
           photoURL: data.photo,
         }).then(() => {
+          reset();
           Swal.fire({
             icon: "success",
             title: "Success!",
             text: "Registration successful!",
           });
+          navigate(location?.state ? location?.state : "/");
 
-          reset();
           // console.log("updated profile");
         });
 
