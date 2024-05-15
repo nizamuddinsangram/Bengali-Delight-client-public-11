@@ -2,11 +2,13 @@ import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import img1 from "../../assets/loginImage.png";
 import { AuthContext } from "../../provider/AuthProvider";
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { createUser } = useContext(AuthContext);
   const {
     register,
@@ -20,6 +22,7 @@ const Register = () => {
     const password = data.password;
     createUser(email, password)
       .then((result) => {
+        navigate(location?.state ? location?.state : "/");
         // console.log(result.user);
         //update profile
         updateProfile(result.user, {
@@ -31,6 +34,7 @@ const Register = () => {
             title: "Success!",
             text: "Registration successful!",
           });
+
           reset();
           // console.log("updated profile");
         });
