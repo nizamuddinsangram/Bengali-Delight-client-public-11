@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 const axiosSecure = axios.create({
   baseURL: "https://bengali-delights-server-lilac.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {
+  const navigate = useNavigate();
   const { logOut } = useContext(AuthContext);
   useEffect(() => {
     axiosSecure.interceptors.response.use(
@@ -16,7 +18,9 @@ const useAxiosSecure = () => {
         console.log("error tracked intercepter", error.response);
         if (error.response.status === 401 || error.response.status === 403) {
           console.log("log out user");
-          logOut();
+          logOut().then(() => {
+            navigate("/login");
+          });
         }
       }
     );
