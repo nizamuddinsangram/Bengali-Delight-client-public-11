@@ -1,24 +1,33 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../../hook/useAxiosSecure";
-import { AuthContext } from "../../../provider/AuthProvider";
+import useOrederFood from "../../../hook/useOrederFood";
 const MyOrderFood = () => {
-  const axiosSecure = useAxiosSecure();
-  const { user } = useContext(AuthContext);
-  const [orderItem, setOrderItem] = useState();
-  const url = `https://bengali-delights-server-lilac.vercel.app/purchases/${user?.email}`;
-  const getData = async () => {
-    const { data } = await axiosSecure(url, { withCredentials: true });
-    setOrderItem(data);
-    // console.log(data);
-  };
-  useEffect(() => {
-    if (user?.email) {
-      getData();
-    }
-  }, [user?.email]);
+  // ------------code test
+  const [test] = useOrederFood();
+  // ---------code test ------------
+  // const axiosSecure = useAxiosSecure();
+  // const { user } = useContext(AuthContext);
+  // const [orderItem, setOrderItem] = useState();
+  // const url = `/purchases/${user?.email}`;
+  // const getData = async () => {
+  //   const { data } = await axiosSecure(url, { withCredentials: true });
+  //   setOrderItem(data);
+  //   console.log("my food purchase details", data);
+  // };
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     getData();
+  //   }
+  // }, [user?.email]);
+  // test find data----------------------------------------
+  const totalPrice = test
+    ?.reduce((total, item) => total + Number(item.price), 0)
+    .toFixed(2);
+  // --------------------------------------------------
+  // const totalPrice = orderItem?.reduce((total, item) => total + item.price, 0);
+  // console.log(totalPrice);
   // console.log(orderItem);
   const handleDelete = async (id) => {
     const { data } = await axios.delete(
@@ -31,20 +40,69 @@ const MyOrderFood = () => {
     });
     getData();
   };
+  const handlePayment = async (id) => {};
   return (
     <>
       <Helmet>
         <title>Bengali Delights || Order Food </title>
       </Helmet>
       <section className="container px-4 mx-auto">
-        <div className="flex items-center gap-x-3">
+        {/* <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium mt-4 text-gray-800 dark:text-white">
             My Order Food
           </h2>
 
-          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-            {orderItem?.length}
-          </span>
+         
+          <div className="flex items-center gap-x-3">
+            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
+              {orderItem?.length}
+            </span>
+            <div>
+              <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                Total: ${totalPrice}
+              </h3>
+            </div>
+            <button
+              onClick={handlePayment}
+              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+            >
+              Pay Now
+            </button>
+          </div>
+        </div> */}
+        <div className="flex flex-col items-center justify-between mt-4 gap-y-3 md:flex-row md:items-center">
+          <div className="flex items-center gap-x-3">
+            <h2 className="text-lg font-medium text-gray-800 dark:text-white">
+              My Order Food
+            </h2>
+            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
+              {test?.length}
+            </span>
+          </div>
+          <div className="flex items-center gap-x-3 mt-2 md:mt-0">
+            <div>
+              <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                Total: ${totalPrice}
+              </h3>
+            </div>
+            {test?.length ? (
+              <Link
+                to="/payment"
+                onClick={handlePayment}
+                className="px-4 py-2 btn-sm text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-900"
+              >
+                <button> Pay Now</button>
+              </Link>
+            ) : (
+              <button
+                className="btn btn-sm text-white bg-green-600 rounded-md hover:bg-green-900"
+                disabled
+              >
+                {" "}
+                Pay Now
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col mt-6">
@@ -137,7 +195,7 @@ const MyOrderFood = () => {
 
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                     {/* start map */}
-                    {orderItem?.map((item) => (
+                    {test?.map((item) => (
                       <tr key={item._id}>
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">

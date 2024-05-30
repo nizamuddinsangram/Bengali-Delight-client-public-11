@@ -28,7 +28,7 @@ const MyAddedFoodUpdate = () => {
     const foodImage = form.foodImage.value;
     const foodCategory = form.foodCategory.value;
     const quantity = parseFloat(form.quantity.value);
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const addedBy = {
       name: form.addedByName.value,
       email: form.addedByEmail.value,

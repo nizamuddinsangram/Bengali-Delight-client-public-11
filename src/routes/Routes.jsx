@@ -9,6 +9,7 @@ import AddFood from "../Pages/MyProfile/AddFood/AddFood";
 import MyAddedFood from "../Pages/MyProfile/MyAddedFood/MyAddedFood";
 import MyAddedFoodUpdate from "../Pages/MyProfile/MyAddedFood/MyAddedFoodUpdate";
 import MyOrderFood from "../Pages/MyProfile/MyOrderFood/MyOrderFood";
+import Payment from "../Pages/MyProfile/Payment/Payment";
 import Register from "../Pages/Register/Register";
 import SingleFood from "../Pages/SingleFoodPage/SingleFood";
 import Main from "../layout/Main";
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <GalleryPage />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
       // {
       //   path: "/test",
