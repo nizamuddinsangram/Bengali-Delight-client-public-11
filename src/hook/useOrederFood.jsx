@@ -15,7 +15,7 @@ const useOrederFood = () => {
     enabled: !loading && !!user?.email,
     queryFn: getData,
   });
-  console.log("useOrder food ", test);
+  //   console.log("useOrder food ", test);
   return [test];
 };
 export default useOrederFood;

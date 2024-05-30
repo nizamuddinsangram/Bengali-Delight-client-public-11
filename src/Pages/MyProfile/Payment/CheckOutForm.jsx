@@ -1,9 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
+import useOrederFood from "../../../hook/useOrederFood";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const CheckOutForm = () => {
+  const [test] = useOrederFood();
   const { user } = useContext(AuthContext);
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
@@ -11,18 +13,22 @@ const CheckOutForm = () => {
   const elements = useElements();
   const [error, setError] = useState();
   const axiosSecure = useAxiosSecure();
-  const itemPrice = 100;
+
+  // -------------------payment related ---------
+  const totalPrice = test
+    ?.reduce((total, item) => total + Number(item.price), 0)
+    .toFixed(2);
   // console.log(typeof itemPrice);
   useEffect(() => {
     axiosSecure
       .post("/create-payment-intent", {
-        price: itemPrice,
+        price: totalPrice,
       })
       .then((res) => {
         console.log(res?.data?.clientSecret);
         setClientSecret(res?.data?.clientSecret);
       });
-  }, [axiosSecure]);
+  }, [axiosSecure, totalPrice]);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -44,9 +50,9 @@ const CheckOutForm = () => {
 
     if (error) {
       setError(error.message);
-      console.log("[error]", error);
+      // console.log("[error]", error);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      // console.log("[PaymentMethod]", paymentMethod);
       setError("");
     }
     //confirm payment method
@@ -65,7 +71,7 @@ const CheckOutForm = () => {
     } else {
       console.log(paymentIntent);
       if (paymentIntent.status === "success") {
-        console.log("success", paymentIntent.id);
+        // console.log("success", paymentIntent.id);
         setTransactionId(paymentIntent.id);
       }
     }
