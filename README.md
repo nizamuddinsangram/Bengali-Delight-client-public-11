@@ -3,7 +3,7 @@
 Welcome to Bengali Delights, a food-themed website where you can explore delicious Bengali cuisine and engage with food enthusiasts.
 
 - **Live Site URL:** [Bengali Delights](https://assignment-eleven-cea95.web.app)
-- **Server Repository:** [Bengali Delights Server](#) *(Replace with your server repository link)*
+- **Server Repository:** [Bengali Delights Server](#) *(https://github.com/Porgramming-Hero-web-course/b9a11-server-side-nizamuddinsangram)*
 
 ## Overview
 
@@ -39,6 +39,38 @@ Bengali Delights offers a comprehensive platform to discover, explore, and engag
    - Creatively designed error page for handling 404 errors.
    - Includes a "Back to Home" button for seamless navigation.
 
+## Technology Stack
+
+Bengali Delights leverages a powerful technology stack to deliver its features:
+
+- **Backend:**
+  - Node.js
+  - Express.js
+  - JWT (JSON Web Token) for authentication
+
+- **Database:**
+  - MongoDB
+
+- **Frontend:**
+  - React
+
+## NPM Packages Used
+
+Here are the key NPM packages used in this project:
+
+- **Tanstack Query**
+- **React Datepicker**
+- **React Tabs**
+- **Locomotive Scroll**
+- **Axios**
+- **React Helmet Async**
+- **JSON Web Token**
+- **Firebase**
+- **React Hook Form**
+- **React Hot Toast**
+- **Sweet Alert**
+- **Swiper Slider**
+
 ## Installation
 
 To run Bengali Delights locally, follow these steps:
@@ -47,7 +79,3 @@ To run Bengali Delights locally, follow these steps:
    ```bash
    git clone <repository_url>
    cd bengali-delights
-   ## NPM Packages used in this project
-
-#### Technology Stack:
-
